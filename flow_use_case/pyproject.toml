@@ -1,0 +1,18 @@
+[project]
+name = "flow_use_case"
+version = "0.1.0"
+description = "flow_use_case using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.86.0,<1.0.0",
+    "pydantic>=2.10.4",
+]
+
+[project.scripts]
+kickoff = "flow_use_case.main:kickoff"
+plot = "flow_use_case.main:plot"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
