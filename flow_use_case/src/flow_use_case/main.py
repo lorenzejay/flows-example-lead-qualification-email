@@ -56,14 +56,15 @@ class LeadQualificationFlow(Flow[LeadQualificationState]):
     @listen(generate_lead_score)
     def generate_lead_email(self):
         if self.state.lead_score.score > 70:
+            print("state", self.state)
             result = (
                 EmailEngagementCrew()
                 .crew()
                 .kickoff(
                     inputs={
-                        "personal_info": self.state.personal_info,
-                        "company_info": self.state.company_info,
-                        "lead_score": self.state.lead_score.score,
+                        "personal_info": str(self.state.personal_info),
+                        "company_info": str(self.state.company_info),
+                        "lead_score": str(self.state.lead_score.score),
                     }
                 )
             )
